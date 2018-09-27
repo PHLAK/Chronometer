@@ -57,7 +57,7 @@ class Timer
     }
 
     /**
-     * Return the total elapsed time.
+     * Return the total time elapsed in seconds.
      *
      * @return float elapsed time in microseconds
      */
@@ -67,11 +67,7 @@ class Timer
             throw new TimerException('Timer must be started first');
         }
 
-        if (empty(self::$stopped)) {
-            throw new TimerException('Timer must be stopped first');
-        }
-
-        return self::$stopped - self::$started;
+        return (self::$stopped ?? microtime(true)) - self::$started;
     }
 
     /**

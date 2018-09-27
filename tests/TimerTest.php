@@ -39,6 +39,16 @@ class TimerTest extends TestCase
     public function test_it_can_get_the_time_elapsed()
     {
         Timer::start();
+        usleep(5000);
+
+        $elapsed = Timer::elapsed();
+
+        $this->assertRegExp('/0\.005[0-9]+/', $elapsed);
+    }
+
+    public function test_it_can_get_the_total_time_elapsed()
+    {
+        Timer::start();
         usleep(10000);
         Timer::stop();
 
@@ -85,16 +95,6 @@ class TimerTest extends TestCase
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started first');
-
-        Timer::elapsed();
-    }
-
-    public function test_it_can_not_get_an_elapsed_time_without_being_stopped()
-    {
-        Timer::start();
-
-        $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be stopped first');
 
         Timer::elapsed();
     }
