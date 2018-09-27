@@ -1,8 +1,6 @@
 Chronometer
 ===========
 
-![Chronmeter](chronometer.png)
-
 [![Latest Stable Version](https://img.shields.io/packagist/v/PHLAK/Chronometer.svg)](https://packagist.org/packages/PHLAK/Chronometer)
 [![Total Downloads](https://img.shields.io/packagist/dt/PHLAK/Chronometer.svg)](https://packagist.org/packages/PHLAK/Chronometer)
 [![Author](https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg)](https://www.ChrisKankiewicz.com)
