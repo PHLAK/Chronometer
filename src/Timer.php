@@ -57,20 +57,6 @@ class Timer
     }
 
     /**
-     * Return the total time elapsed in seconds.
-     *
-     * @return float elapsed time in microseconds
-     */
-    public static function elapsed()
-    {
-        if (empty(self::$started)) {
-            throw new TimerException('Timer must be started first');
-        }
-
-        return (self::$stopped ?? microtime(true)) - self::$started;
-    }
-
-    /**
      * Add a new lap.
      *
      * @return \PHLAK\Chronometer\Lap A Lap object
@@ -92,6 +78,48 @@ class Timer
         self::$laps[] = self::$lastLap;
 
         return self::$lastLap;
+    }
+
+    /**
+     * Return the timer start time.
+     *
+     * @return float The timer start time
+     */
+    public static function started()
+    {
+        if (empty(self::$started)) {
+            throw new TimerException('Timer must be started first');
+        }
+
+        return self::$started;
+    }
+
+    /**
+     * Return the timer stop time.
+     *
+     * @return float The timer stop time
+     */
+    public static function stopped()
+    {
+        if (empty(self::$stopped)) {
+            throw new TimerException('Timer must be started and stopped first');
+        }
+
+        return self::$stopped;
+    }
+
+    /**
+     * Return the total time elapsed in seconds.
+     *
+     * @return float elapsed time in microseconds
+     */
+    public static function elapsed()
+    {
+        if (empty(self::$started)) {
+            throw new TimerException('Timer must be started first');
+        }
+
+        return (self::$stopped ?? microtime(true)) - self::$started;
     }
 
     /**

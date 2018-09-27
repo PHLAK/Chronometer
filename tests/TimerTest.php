@@ -91,12 +91,58 @@ class TimerTest extends TestCase
         Timer::stop();
     }
 
+    public function test_it_can_get_the_start_time()
+    {
+        $start = Timer::start();
+        usleep(1000);
+        $started = Timer::started();
+
+        $this->assertEquals($start, $started);
+    }
+
+    public function test_it_can_get_the_stop_time()
+    {
+        Timer::start();
+        usleep(1000);
+        $stop = Timer::stop();
+
+        $stopped = Timer::stopped();
+
+        $this->assertEquals($stop, $stopped);
+    }
+
     public function test_it_can_not_get_an_elapsed_time_without_being_started()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started first');
 
         Timer::elapsed();
+    }
+
+    public function test_it_can_not_get_the_start_time_without_being_started()
+    {
+        $this->expectException(TimerException::class);
+        $this->expectExceptionMessage('Timer must be started first');
+
+        Timer::started();
+    }
+
+    public function test_it_can_not_get_the_stopped_time_without_being_started()
+    {
+        $this->expectException(TimerException::class);
+        $this->expectExceptionMessage('Timer must be started and stopped first');
+
+        Timer::stopped();
+    }
+
+    public function test_it_can_not_get_the_stopped_time_without_being_stopped()
+    {
+        Timer::start();
+
+        $this->expectException(TimerException::class);
+        $this->expectExceptionMessage('Timer must be started and stopped first');
+
+        Timer::stopped();
     }
 
     public function test_it_can_not_add_a_lap_without_being_started()
