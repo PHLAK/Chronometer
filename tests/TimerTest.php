@@ -22,7 +22,7 @@ class TimerTest extends TestCase
         $start = Timer::start();
         $lastLap = Timer::lastLap();
 
-        $this->assertRegExp($this->microtimeRegex, $start);
+        $this->assertRegExp($this->microtimeRegex, (string) $start);
         $this->assertEquals(new Lap($start, 0), $lastLap);
     }
 
@@ -32,7 +32,7 @@ class TimerTest extends TestCase
         $end = Timer::stop();
         $lastLap = Timer::lastLap();
 
-        $this->assertRegExp($this->microtimeRegex, $end);
+        $this->assertRegExp($this->microtimeRegex, (string) $end);
         $this->assertEquals(new Lap($end, $end - $start), $lastLap);
     }
 
@@ -43,7 +43,7 @@ class TimerTest extends TestCase
 
         $elapsed = Timer::elapsed();
 
-        $this->assertRegExp('/0\.005[0-9]+/', $elapsed);
+        $this->assertRegExp('/0\.005[0-9]+/', (string) $elapsed);
     }
 
     public function test_it_can_get_the_total_time_elapsed()
@@ -54,7 +54,7 @@ class TimerTest extends TestCase
 
         $elapsed = Timer::elapsed();
 
-        $this->assertRegExp('/0\.01[0-9]+/', $elapsed);
+        $this->assertRegExp('/0\.01[0-9]+/', (string) $elapsed);
     }
 
     public function test_it_can_add_a_lap()
@@ -68,8 +68,8 @@ class TimerTest extends TestCase
         $laps = Timer::laps();
 
         $this->assertInstanceOf(Lap::class, $lap);
-        $this->assertRegExp($this->microtimeRegex, $lap->time);
-        $this->assertRegExp('/0\.[0-9]+/', $lap->duration);
+        $this->assertRegExp($this->microtimeRegex, (string) $lap->time);
+        $this->assertRegExp('/0\.[0-9]+/', (string) $lap->duration);
 
         $this->assertEquals([new Lap($start, 0), $lap, new Lap($end, $end - $lap->time)], $laps);
     }
