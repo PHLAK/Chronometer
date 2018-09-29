@@ -23,7 +23,7 @@ class Timer
      *
      * @return float Start time in microseconds
      */
-    public static function start()
+    public static function start() : float
     {
         if (! empty(self::$started)) {
             throw new TimerException('Timer already running, must reset timer before starting again');
@@ -42,7 +42,7 @@ class Timer
      *
      * @return float End time in microseconds
      */
-    public static function stop()
+    public static function stop() : float
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started before stopping');
@@ -61,7 +61,7 @@ class Timer
      *
      * @return \PHLAK\Chronometer\Lap A Lap object
      */
-    public static function addLap()
+    public static function addLap() : Lap
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started first');
@@ -85,7 +85,7 @@ class Timer
      *
      * @return float The timer start time
      */
-    public static function started()
+    public static function started() : float
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started first');
@@ -99,7 +99,7 @@ class Timer
      *
      * @return float The timer stop time
      */
-    public static function stopped()
+    public static function stopped() : float
     {
         if (empty(self::$stopped)) {
             throw new TimerException('Timer must be started and stopped first');
@@ -113,7 +113,7 @@ class Timer
      *
      * @return float elapsed time in microseconds
      */
-    public static function elapsed()
+    public static function elapsed() : float
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started first');
@@ -127,7 +127,7 @@ class Timer
      *
      * @return \PHLAK\Chronometer\Lap The last Lap object
      */
-    public static function lastLap()
+    public static function lastLap() : Lap
     {
         if (empty(self::$lastLap)) {
             throw new TimerException('Timer must be started first');
@@ -141,7 +141,7 @@ class Timer
      *
      * @return array Array of Lap objects
      */
-    public static function laps()
+    public static function laps() : array
     {
         if (empty(self::$laps)) {
             throw new TimerException('Timer must be started first');
@@ -152,8 +152,10 @@ class Timer
 
     /**
      * Reset the timer state.
+     *
+     * @return void
      */
-    public static function reset()
+    public static function reset() : void
     {
         self::$started = null;
         self::$stopped = null;
