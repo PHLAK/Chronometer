@@ -83,6 +83,16 @@ class TimerTest extends TestCase
         Timer::start();
     }
 
+    public function test_it_can_be_started_twice_with_a_parameter()
+    {
+        Timer::start();
+        $start = Timer::start($reset = true);
+        $lastLap = Timer::lastLap();
+
+        $this->assertRegExp($this->microtimeRegex, (string) $start);
+        $this->assertEquals(new Lap($start, 0), $lastLap);
+    }
+
     public function test_it_cannot_be_stopped_without_being_started()
     {
         $this->expectException(TimerException::class);

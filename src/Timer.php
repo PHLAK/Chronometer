@@ -21,10 +21,16 @@ class Timer
     /**
      * Start the timer.
      *
+     * @param bool $reset If true, reset the timer before running.
+     *
      * @return float Start time in microseconds
      */
-    public static function start() : float
+    public static function start($reset = false) : float
     {
+        if ($reset) {
+            self::reset();
+        }
+
         if (! empty(self::$started)) {
             throw new TimerException('Timer already running, must reset timer before starting again');
         }
