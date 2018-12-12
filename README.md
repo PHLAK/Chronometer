@@ -55,6 +55,12 @@ After running your timer you will need to reset it before using it again.
 Timer::reset();
 ```
 
+You may optionally reset the timer when you start it with the `$reset` parameter.
+
+```php
+Timer::start($reset = true);
+```
+
 Usage
 -----
 
@@ -62,7 +68,7 @@ Usage
 > Start the timer.
 
 ```php
-Chronometer\Timer::start( void ) : float
+Chronometer\Timer::start( [ $reset = false ] ) : float
 ```
 
 #### Example
