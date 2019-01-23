@@ -145,7 +145,7 @@ class Timer
     }
 
     /**
-     * Return the array of laps.
+     * Return an array of all laps.
      *
      * @return array Array of Lap objects
      */

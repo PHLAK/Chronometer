@@ -176,6 +176,21 @@ $lap->duration // Returns something like 7.2800490856171
 
 ---
 
+### laps
+> Return an array of all laps.
+
+```php
+Chronometer\Timer::laps( void ) : array
+```
+
+#### Example
+
+```php
+Chronometer\Timer::laps(); // Returns an array of Lap objects
+```
+
+---
+
 ### reset
 > Reset the timer state.
 
