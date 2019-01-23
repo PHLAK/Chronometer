@@ -98,16 +98,17 @@ Chronometer\Timer::stop(); // Returns something like 1538016632.7721
 > Add a new lap.
 
 ```php
-Chronometer\Timer::addLap( void ) : Chronometer\Lap
+Chronometer\Timer::addLap( [ string $description = null ] ) : Chronometer\Lap
 ```
 
 #### Example
 
 ```php
-$lap = Chronometer\Timer::addLap();
+$lap = Chronometer\Timer::addLap('The first lap.');
 
 $lap->time // Returns something like 1538016625.492
 $lap->duration // Returns something like 7.999922990799
+$lap->description // Returns 'The first lap.'
 ```
 
 ---

@@ -65,9 +65,11 @@ class Timer
     /**
      * Add a new lap.
      *
+     * @param string $description A lap description
+     *
      * @return \PHLAK\Chronometer\Lap A Lap object
      */
-    public static function addLap() : Lap
+    public static function addLap(string $description = null) : Lap
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started first');
@@ -80,7 +82,7 @@ class Timer
         $now = microtime(true);
         $duration = $now - self::$lastLap->time;
 
-        self::$lastLap = new Lap($now, $duration);
+        self::$lastLap = new Lap($now, $duration, $description);
         self::$laps[] = self::$lastLap;
 
         return self::$lastLap;

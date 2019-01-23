@@ -70,6 +70,7 @@ class TimerTest extends TestCase
         $this->assertInstanceOf(Lap::class, $lap);
         $this->assertRegExp($this->microtimeRegex, (string) $lap->time);
         $this->assertRegExp('/0\.[0-9]+/', (string) $lap->duration);
+        $this->assertNull($lap->description);
 
         $this->assertEquals([new Lap($start, 0), $lap, new Lap($end, $end - $lap->time)], $laps);
     }
@@ -188,5 +189,14 @@ class TimerTest extends TestCase
         $this->expectExceptionMessage('Timer must be started first');
 
         Timer::laps();
+    }
+
+    public function test_it_can_have_named_laps()
+    {
+        $start = Timer::start();
+        usleep(1000);
+        $lap = Timer::addLap('The first lap.');
+
+        $this->assertEquals('The first lap.', $lap->description);
     }
 }

@@ -10,16 +10,21 @@ class Lap
     /** @var float Lap duration */
     protected $duration;
 
+    /** @var string A lap description */
+    protected $description;
+
     /**
      * Create a new Lap object.
      *
-     * @param float $time     The current time
-     * @param float $duration The duration of the lap
+     * @param float  $time        The current time
+     * @param float  $duration    The duration of the lap
+     * @param string $description A description of the lap
      */
-    public function __construct(float $time, float $duration)
+    public function __construct(float $time, float $duration, string $description = null)
     {
         $this->time = $time;
         $this->duration = $duration;
+        $this->description = $description;
     }
 
     /**
