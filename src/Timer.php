@@ -21,7 +21,7 @@ class Timer
     /**
      * Start the timer.
      *
-     * @param bool $reset If true, reset the timer before running.
+     * @param bool $reset if true, reset the timer before running
      *
      * @return float Start time in microseconds
      */
