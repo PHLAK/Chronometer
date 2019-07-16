@@ -191,7 +191,7 @@ class TimerTest extends TestCase
         Timer::laps();
     }
 
-    public function test_it_can_have_named_laps()
+    public function test_it_can_give_a_lap_a_description()
     {
         $start = Timer::start();
         usleep(1000);
