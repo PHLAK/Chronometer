@@ -1,3 +1,7 @@
+<p align="center">
+    <img width="500" height="110" src="https://raw.githubusercontent.com/PHLAK/Chronometer/docs/master/art/logo.png" alt="Chronometer" />
+</p>
+
 Chronometer
 ===========
 
@@ -8,7 +12,7 @@ Chronometer
 [![Build Status](https://img.shields.io/travis/PHLAK/Chronometer.svg)](https://travis-ci.org/PHLAK/Chronometer)
 [![StyleCI](https://styleci.io/repos/95623990/shield?branch=master&style=flat)](https://styleci.io/repos/95623990)
 
-Measure the passing of time -- by, [Chris Kankiewicz](https://www.ChrisKankiewicz.com) ([@PHLAK](https://twitter.com/PHLAK))
+Measure the passing of time -- by, [Chris Kankiewicz](https://www.ChrisKankiewicz.com) ([@PHLAK](https://twitter.com/PHLAK)), logo by [Caneco](https://www.twitter.com/caneco)
 
 Introduction
 ------------
