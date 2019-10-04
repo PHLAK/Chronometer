@@ -1,18 +1,21 @@
 <p align="center">
-    <img width="500" height="110" src="https://raw.githubusercontent.com/PHLAK/Chronometer/docs/master/art/logo.png" alt="Chronometer" />
+    <img src="chronometer.png" alt="Chronometer" width="500">
 </p>
 
-Chronometer
-===========
+<p align="center">
+  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/v/PHLAK/Chronometer.svg" title="Latest Stable Version"></a>
+  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/dt/PHLAK/Chronometer.svg" title="Total Downloads"></a>
+  <a href="https://www.ChrisKankiewicz.com"><img src="https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg" title="Author"></a>
+  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/l/PHLAK/Chronometer.svg" title="License"></a>
+  <a href="https://travis-ci.org/PHLAK/Chronometer"><img src="https://img.shields.io/travis/PHLAK/Chronometer.svg" title="Build Status"></a>
+  <a href="https://styleci.io/repos/95623990"><img src="https://styleci.io/repos/95623990/shield?branch=master&style=flat" title="StyleCI"></a>
+</p>
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/PHLAK/Chronometer.svg)](https://packagist.org/packages/PHLAK/Chronometer)
-[![Total Downloads](https://img.shields.io/packagist/dt/PHLAK/Chronometer.svg)](https://packagist.org/packages/PHLAK/Chronometer)
-[![Author](https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg)](https://www.ChrisKankiewicz.com)
-[![License](https://img.shields.io/packagist/l/PHLAK/Chronometer.svg)](https://packagist.org/packages/PHLAK/Chronometer)
-[![Build Status](https://img.shields.io/travis/PHLAK/Chronometer.svg)](https://travis-ci.org/PHLAK/Chronometer)
-[![StyleCI](https://styleci.io/repos/95623990/shield?branch=master&style=flat)](https://styleci.io/repos/95623990)
-
-Measure the passing of time -- by, [Chris Kankiewicz](https://www.ChrisKankiewicz.com) ([@PHLAK](https://twitter.com/PHLAK)), logo by [Caneco](https://www.twitter.com/caneco)
+<p align="center">
+  Measure the passing of time --
+  by, <a href="https://www.ChrisKankiewicz.com">Chris Kankiewicz</a> (<a href="https://twitter.com/PHLAK">@PHLAK</a>),
+  logo by <a href="https://www.twitter.com/Caneco">Caneco</a>
+</p>
 
 Introduction
 ------------
