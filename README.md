@@ -3,17 +3,15 @@
 </p>
 
 <p align="center">
-  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/v/PHLAK/Chronometer.svg" title="Latest Stable Version"></a>
-  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/dt/PHLAK/Chronometer.svg" title="Total Downloads"></a>
-  <a href="https://www.ChrisKankiewicz.com"><img src="https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg" title="Author"></a>
-  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/l/PHLAK/Chronometer.svg" title="License"></a>
-  <a href="https://travis-ci.org/PHLAK/Chronometer"><img src="https://img.shields.io/travis/PHLAK/Chronometer.svg" title="Build Status"></a>
-  <a href="https://styleci.io/repos/150507758"><img src="https://styleci.io/repos/150507758/shield?branch=master&style=flat" title="StyleCI"></a>
+  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/v/PHLAK/Chronometer.svg?style=flat-square" title="Latest Stable Version"></a>
+  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/dt/PHLAK/Chronometer.svg?style=flat-square" title="Total Downloads"></a>
+  <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/l/PHLAK/Chronometer.svg?style=flat-square" title="License"></a>
+  <a href="https://travis-ci.org/PHLAK/Chronometer"><img src="https://img.shields.io/travis/PHLAK/Chronometer.svg?style=flat-square" title="Build Status"></a>
+  <a href="https://styleci.io/repos/150507758"><img src="https://styleci.io/repos/150507758/shield?branch=master&style=flat-square" title="StyleCI"></a>
   <br>
-  <a href="https://join.slack.com/t/phlaknet/shared_invite/enQtNzk0ODkwMDA2MDg0LWI4NDAyZGRlMWEyMWNhZmJmZjgzM2Y2YTdhNmZlYzc3OGNjZWU5MDNkMTcwMWQ5OGI5ODFmMjI5OWVkZTliN2M"><img src="https://img.shields.io/badge/Join_our-Slack-611f69.svg" alt="Join our"></a>
-  <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg" alt="Become a Sponsor"></a>
-  <a href="https://patreon.com/PHLAK"><img src="https://img.shields.io/badge/Become_a-Patron-e7513b.svg" alt="Become a Patron"></a>
-  <a href="https://paypal.me/ChrisKankiewicz"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg" alt="One-time Donation"></a>
+  <a href="https://spectrum.chat/phlaknet"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg?style=flat-square" alt="Join our Community"></a>
+  <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg?style=flat-square" alt="Become a Sponsor"></a>
+  <a href="https://paypal.me/ChrisKankiewicz"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg?style=flat-square" alt="One-time Donation"></a>
 </p>
 
 <p align="center">
