@@ -20,7 +20,7 @@ class Lap
      * @param float  $duration    The duration of the lap
      * @param string $description A description of the lap
      */
-    public function __construct(float $time, float $duration, string $description = null)
+    public function __construct(float $time, float $duration, string $description = '')
     {
         $this->time = $time;
         $this->duration = $duration;

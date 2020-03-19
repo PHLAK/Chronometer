@@ -70,7 +70,7 @@ class TimerTest extends TestCase
         $this->assertInstanceOf(Lap::class, $lap);
         $this->assertRegExp($this->microtimeRegex, (string) $lap->time);
         $this->assertRegExp('/0\.[0-9]+/', (string) $lap->duration);
-        $this->assertNull($lap->description);
+        $this->assertEmpty($lap->description);
 
         $this->assertEquals([new Lap($start, 0), $lap, new Lap($end, $end - $lap->time)], $laps);
     }

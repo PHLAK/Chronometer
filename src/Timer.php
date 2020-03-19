@@ -9,7 +9,7 @@ class Timer
     /** @var float Start time in microseconds */
     protected static $started;
 
-    /** @var float End time in micoseconds */
+    /** @var float|null End time in micoseconds */
     protected static $stopped;
 
     /** @var \PHLAK\Chronometer\Lap The last lap */
