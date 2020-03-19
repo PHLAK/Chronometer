@@ -12,7 +12,7 @@ class TimerTest extends TestCase
     /** @var string Microtime regular expression */
     protected $microtimeRegex = '/[0-9]{10}(\.[0-9]+)?/';
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Timer::reset();
     }
