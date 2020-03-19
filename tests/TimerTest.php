@@ -2,9 +2,9 @@
 
 namespace PHLAK\Chronometer\Tests;
 
-use PHLAK\Chronometer\Timer;
-use PHLAK\Chronometer\Lap;
 use PHLAK\Chronometer\Exceptions\TimerException;
+use PHLAK\Chronometer\Lap;
+use PHLAK\Chronometer\Timer;
 use PHPUnit\Framework\TestCase;
 
 class TimerTest extends TestCase

@@ -23,9 +23,11 @@ class Timer
      *
      * @param bool $reset if true, reset the timer before running
      *
+     * @throws \PHLAK\Chronometer\Exceptions\TimerException
+     *
      * @return float Start time in microseconds
      */
-    public static function start($reset = false) : float
+    public static function start($reset = false): float
     {
         if ($reset) {
             self::reset();
@@ -46,9 +48,11 @@ class Timer
     /**
      * Stop the timer.
      *
+     * @throws \PHLAK\Chronometer\Exceptions\TimerException
+     *
      * @return float End time in microseconds
      */
-    public static function stop() : float
+    public static function stop(): float
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started before stopping');
@@ -67,9 +71,11 @@ class Timer
      *
      * @param string $description A lap description
      *
+     * @throws \PHLAK\Chronometer\Exceptions\TimerException
+     *
      * @return \PHLAK\Chronometer\Lap A Lap object
      */
-    public static function addLap(string $description = null) : Lap
+    public static function addLap(string $description = ''): Lap
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started first');
@@ -91,9 +97,11 @@ class Timer
     /**
      * Return the timer start time.
      *
+     * @throws \PHLAK\Chronometer\Exceptions\TimerException
+     *
      * @return float The timer start time
      */
-    public static function started() : float
+    public static function started(): float
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started first');
@@ -105,9 +113,11 @@ class Timer
     /**
      * Return the timer stop time.
      *
+     * @throws \PHLAK\Chronometer\Exceptions\TimerException
+     *
      * @return float The timer stop time
      */
-    public static function stopped() : float
+    public static function stopped(): float
     {
         if (empty(self::$stopped)) {
             throw new TimerException('Timer must be started and stopped first');
@@ -119,9 +129,11 @@ class Timer
     /**
      * Return the total time elapsed in seconds.
      *
+     * @throws \PHLAK\Chronometer\Exceptions\TimerException
+     *
      * @return float elapsed time in microseconds
      */
-    public static function elapsed() : float
+    public static function elapsed(): float
     {
         if (empty(self::$started)) {
             throw new TimerException('Timer must be started first');
@@ -133,9 +145,11 @@ class Timer
     /**
      * Return the last lap.
      *
+     * @throws \PHLAK\Chronometer\Exceptions\TimerException
+     *
      * @return \PHLAK\Chronometer\Lap The last Lap object
      */
-    public static function lastLap() : Lap
+    public static function lastLap(): Lap
     {
         if (empty(self::$lastLap)) {
             throw new TimerException('Timer must be started first');
@@ -147,9 +161,11 @@ class Timer
     /**
      * Return an array of all laps.
      *
+     * @throws \PHLAK\Chronometer\Exceptions\TimerException
+     *
      * @return array Array of Lap objects
      */
-    public static function laps() : array
+    public static function laps(): array
     {
         if (empty(self::$laps)) {
             throw new TimerException('Timer must be started first');
