@@ -29,7 +29,7 @@ It's intended to be used for benchmarking code execution time.
 Requirements
 ------------
 
-  - [PHP](https://php.net) >= 7.0
+  - [PHP](https://php.net) >= 7.1
 
 Install with Composer
 ---------------------
