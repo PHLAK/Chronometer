@@ -9,7 +9,3 @@ updates:
   open-pull-requests-limit: 10
   assignees:
   - PHLAK
-  ignore:
-  - dependency-name: phpunit/phpunit
-    versions:
-    - "> 7.0"
