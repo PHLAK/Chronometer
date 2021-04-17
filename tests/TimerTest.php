@@ -5,7 +5,7 @@ namespace PHLAK\Chronometer\Tests;
 use PHLAK\Chronometer\Exceptions\TimerException;
 use PHLAK\Chronometer\Lap;
 use PHLAK\Chronometer\Timer;
-use PHPUnit\Framework\TestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class TimerTest extends TestCase
 {
@@ -17,36 +17,36 @@ class TimerTest extends TestCase
         Timer::reset();
     }
 
-    public function test_it_can_start_a_timer()
+    public function testItCanStartATimer()
     {
         $start = Timer::start();
         $lastLap = Timer::lastLap();
 
-        $this->assertRegExp($this->microtimeRegex, (string) $start);
+        $this->assertMatchesRegularExpression($this->microtimeRegex, (string) $start);
         $this->assertEquals(new Lap($start, 0), $lastLap);
     }
 
-    public function test_it_can_end_a_timer()
+    public function testItCanEndATimer()
     {
         $start = Timer::start();
         $end = Timer::stop();
         $lastLap = Timer::lastLap();
 
-        $this->assertRegExp($this->microtimeRegex, (string) $end);
+        $this->assertMatchesRegularExpression($this->microtimeRegex, (string) $end);
         $this->assertEquals(new Lap($end, $end - $start), $lastLap);
     }
 
-    public function test_it_can_get_the_time_elapsed()
+    public function testItCanGetTheTimeElapsed()
     {
         Timer::start();
         usleep(5000);
 
         $elapsed = Timer::elapsed();
 
-        $this->assertRegExp('/0\.005[0-9]+/', (string) $elapsed);
+        $this->assertMatchesRegularExpression('/0\.005[0-9]+/', (string) $elapsed);
     }
 
-    public function test_it_can_get_the_total_time_elapsed()
+    public function testItCanGetTheTotalTimeElapsed()
     {
         Timer::start();
         usleep(10000);
@@ -54,10 +54,10 @@ class TimerTest extends TestCase
 
         $elapsed = Timer::elapsed();
 
-        $this->assertRegExp('/0\.01[0-9]+/', (string) $elapsed);
+        $this->assertMatchesRegularExpression('/0\.01[0-9]+/', (string) $elapsed);
     }
 
-    public function test_it_can_add_a_lap()
+    public function testItCanAddALap()
     {
         $start = Timer::start();
         usleep(2000);
@@ -68,14 +68,14 @@ class TimerTest extends TestCase
         $laps = Timer::laps();
 
         $this->assertInstanceOf(Lap::class, $lap);
-        $this->assertRegExp($this->microtimeRegex, (string) $lap->time);
-        $this->assertRegExp('/0\.[0-9]+/', (string) $lap->duration);
+        $this->assertMatchesRegularExpression($this->microtimeRegex, (string) $lap->time);
+        $this->assertMatchesRegularExpression('/0\.[0-9]+/', (string) $lap->duration);
         $this->assertEmpty($lap->description);
 
         $this->assertEquals([new Lap($start, 0), $lap, new Lap($end, $end - $lap->time)], $laps);
     }
 
-    public function test_it_can_not_be_started_twice()
+    public function testItCanNotBeStartedTwice()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer already running, must reset timer before starting again');
@@ -84,17 +84,17 @@ class TimerTest extends TestCase
         Timer::start();
     }
 
-    public function test_it_can_be_started_twice_with_a_parameter()
+    public function testItCanBeStartedTwiceWithAParameter()
     {
         Timer::start();
         $start = Timer::start($reset = true);
         $lastLap = Timer::lastLap();
 
-        $this->assertRegExp($this->microtimeRegex, (string) $start);
+        $this->assertMatchesRegularExpression($this->microtimeRegex, (string) $start);
         $this->assertEquals(new Lap($start, 0), $lastLap);
     }
 
-    public function test_it_cannot_be_stopped_without_being_started()
+    public function testItCannotBeStoppedWithoutBeingStarted()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started before stopping');
@@ -102,7 +102,7 @@ class TimerTest extends TestCase
         Timer::stop();
     }
 
-    public function test_it_can_get_the_start_time()
+    public function testItCanGetTheStartTime()
     {
         $start = Timer::start();
         usleep(1000);
@@ -111,7 +111,7 @@ class TimerTest extends TestCase
         $this->assertEquals($start, $started);
     }
 
-    public function test_it_can_get_the_stop_time()
+    public function testItCanGetTheStopTime()
     {
         Timer::start();
         usleep(1000);
@@ -122,7 +122,7 @@ class TimerTest extends TestCase
         $this->assertEquals($stop, $stopped);
     }
 
-    public function test_it_can_not_get_an_elapsed_time_without_being_started()
+    public function testItCanNotGetAnElapsedTimeWithoutBeingStarted()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started first');
@@ -130,7 +130,7 @@ class TimerTest extends TestCase
         Timer::elapsed();
     }
 
-    public function test_it_can_not_get_the_start_time_without_being_started()
+    public function testItCanNotGetTheStartTimeWithoutBeingStarted()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started first');
@@ -138,7 +138,7 @@ class TimerTest extends TestCase
         Timer::started();
     }
 
-    public function test_it_can_not_get_the_stopped_time_without_being_started()
+    public function testItCanNotGetTheStoppedTimeWithoutBeingStarted()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started and stopped first');
@@ -146,7 +146,7 @@ class TimerTest extends TestCase
         Timer::stopped();
     }
 
-    public function test_it_can_not_get_the_stopped_time_without_being_stopped()
+    public function testItCanNotGetTheStoppedTimeWithoutBeingStopped()
     {
         Timer::start();
 
@@ -156,7 +156,7 @@ class TimerTest extends TestCase
         Timer::stopped();
     }
 
-    public function test_it_can_not_add_a_lap_without_being_started()
+    public function testItCanNotAddALapWithoutBeingStarted()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started first');
@@ -164,7 +164,7 @@ class TimerTest extends TestCase
         Timer::addLap();
     }
 
-    public function test_it_cannot_add_a_lap_after_being_stopped()
+    public function testItCannotAddALapAfterBeingStopped()
     {
         Timer::start();
         Timer::stop();
@@ -175,7 +175,7 @@ class TimerTest extends TestCase
         Timer::addLap();
     }
 
-    public function test_it_can_not_get_the_last_lap_without_being_started()
+    public function testItCanNotGetTheLastLapWithoutBeingStarted()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started first');
@@ -183,7 +183,7 @@ class TimerTest extends TestCase
         Timer::lastLap();
     }
 
-    public function test_it_can_not_get_an_array_of_laps_without_being_started()
+    public function testItCanNotGetAnArrayOfLapsWithoutBeingStarted()
     {
         $this->expectException(TimerException::class);
         $this->expectExceptionMessage('Timer must be started first');
@@ -191,7 +191,7 @@ class TimerTest extends TestCase
         Timer::laps();
     }
 
-    public function test_it_can_give_a_lap_a_description()
+    public function testItCanGiveALapADescription()
     {
         $start = Timer::start();
         usleep(1000);
