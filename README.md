@@ -10,8 +10,7 @@
     <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/v/PHLAK/Chronometer.svg?style=flat-square" title="Latest Stable Version"></a>
     <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/dt/PHLAK/Chronometer.svg?style=flat-square" title="Total Downloads"></a>
     <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/l/PHLAK/Chronometer.svg?style=flat-square" title="License"></a>
-    <a href="https://travis-ci.com/PHLAK/Chronometer"><img src="https://img.shields.io/travis/com/PHLAK/Chronometer.svg?style=flat-square" title="Build Status"></a>
-    <a href="https://styleci.io/repos/150507758"><img src="https://styleci.io/repos/150507758/shield?branch=master&style=flat-square" title="StyleCI"></a>
+    <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/PHLAK/Chronometer/master?style=flat-square">
 </p>
 
 <p align="center">
