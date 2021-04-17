@@ -168,18 +168,14 @@ class Timer
     public static function laps(): array
     {
         if (empty(self::$laps)) {
-            throw new TimerException('Timer must be started first');
+            throw TimerException::notStarted();
         }
 
         return self::$laps;
     }
 
-    /**
-     * Reset the timer state.
-     *
-     * @return void
-     */
-    public static function reset()
+    /** Reset the timer state. */
+    public static function reset(): void
     {
         self::$started = null;
         self::$stopped = null;
