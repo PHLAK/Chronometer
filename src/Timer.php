@@ -34,7 +34,7 @@ class Timer
         }
 
         if (! empty(self::$started)) {
-            throw new TimerException('Timer already running, must reset timer before starting again');
+            throw TimerException::requiresReset();
         }
 
         self::$started = microtime(true);
@@ -55,7 +55,7 @@ class Timer
     public static function stop(): float
     {
         if (empty(self::$started)) {
-            throw new TimerException('Timer must be started before stopping');
+            throw TimerException::notStarted();
         }
 
         self::$stopped = microtime(true);
@@ -78,11 +78,11 @@ class Timer
     public static function addLap(string $description = ''): Lap
     {
         if (empty(self::$started)) {
-            throw new TimerException('Timer must be started first');
+            throw TimerException::notStarted();
         }
 
         if (! empty(self::$stopped)) {
-            throw new TimerException('Cannot add a lap after timer has been stopped');
+            throw TimerException::requiresReset();
         }
 
         $now = microtime(true);
@@ -104,7 +104,7 @@ class Timer
     public static function started(): float
     {
         if (empty(self::$started)) {
-            throw new TimerException('Timer must be started first');
+            throw TimerException::notStarted();
         }
 
         return self::$started;
@@ -119,8 +119,12 @@ class Timer
      */
     public static function stopped(): float
     {
+        if (empty(self::$started)) {
+            throw TimerException::notStarted();
+        }
+
         if (empty(self::$stopped)) {
-            throw new TimerException('Timer must be started and stopped first');
+            throw TimerException::notStopped();
         }
 
         return self::$stopped;
@@ -136,7 +140,7 @@ class Timer
     public static function elapsed(): float
     {
         if (empty(self::$started)) {
-            throw new TimerException('Timer must be started first');
+            throw TimerException::notStarted();
         }
 
         return (self::$stopped ?? microtime(true)) - self::$started;
@@ -152,7 +156,7 @@ class Timer
     public static function lastLap(): Lap
     {
         if (empty(self::$lastLap)) {
-            throw new TimerException('Timer must be started first');
+            throw TimerException::notStarted();
         }
 
         return self::$lastLap;

@@ -17,7 +17,7 @@ class TimerTest extends TestCase
         Timer::reset();
     }
 
-    public function testItCanStartATimer()
+    public function test_it_can_start_a_timer()
     {
         $start = Timer::start();
         $lastLap = Timer::lastLap();
@@ -26,7 +26,7 @@ class TimerTest extends TestCase
         $this->assertEquals(new Lap($start, 0), $lastLap);
     }
 
-    public function testItCanEndATimer()
+    public function test_it_can_end_a_timer()
     {
         $start = Timer::start();
         $end = Timer::stop();
@@ -36,7 +36,7 @@ class TimerTest extends TestCase
         $this->assertEquals(new Lap($end, $end - $start), $lastLap);
     }
 
-    public function testItCanGetTheTimeElapsed()
+    public function test_it_can_get_the_time_elapsed()
     {
         Timer::start();
         usleep(5000);
@@ -46,7 +46,7 @@ class TimerTest extends TestCase
         $this->assertMatchesRegularExpression('/0\.005[0-9]+/', (string) $elapsed);
     }
 
-    public function testItCanGetTheTotalTimeElapsed()
+    public function test_it_can_get_the_total_time_elapsed()
     {
         Timer::start();
         usleep(10000);
@@ -57,7 +57,7 @@ class TimerTest extends TestCase
         $this->assertMatchesRegularExpression('/0\.01[0-9]+/', (string) $elapsed);
     }
 
-    public function testItCanAddALap()
+    public function test_it_can_add_a_lap()
     {
         $start = Timer::start();
         usleep(2000);
@@ -75,16 +75,16 @@ class TimerTest extends TestCase
         $this->assertEquals([new Lap($start, 0), $lap, new Lap($end, $end - $lap->time)], $laps);
     }
 
-    public function testItCanNotBeStartedTwice()
+    public function test_it_can_not_be_started_twice()
     {
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer already running, must reset timer before starting again');
+        $this->expectExceptionCode(TimerException::CODE_REQUIRES_RESET);
 
         Timer::start();
         Timer::start();
     }
 
-    public function testItCanBeStartedTwiceWithAParameter()
+    public function test_it_can_be_started_twice_with_a_parameter()
     {
         Timer::start();
         $start = Timer::start($reset = true);
@@ -94,15 +94,15 @@ class TimerTest extends TestCase
         $this->assertEquals(new Lap($start, 0), $lastLap);
     }
 
-    public function testItCannotBeStoppedWithoutBeingStarted()
+    public function test_it_cannot_be_stopped_without_being_started()
     {
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be started before stopping');
+        $this->expectExceptionCode(TimerException::CODE_NOT_STARTED);
 
         Timer::stop();
     }
 
-    public function testItCanGetTheStartTime()
+    public function test_it_can_get_the_start_time()
     {
         $start = Timer::start();
         usleep(1000);
@@ -111,7 +111,7 @@ class TimerTest extends TestCase
         $this->assertEquals($start, $started);
     }
 
-    public function testItCanGetTheStopTime()
+    public function test_it_can_get_the_stop_time()
     {
         Timer::start();
         usleep(1000);
@@ -122,76 +122,76 @@ class TimerTest extends TestCase
         $this->assertEquals($stop, $stopped);
     }
 
-    public function testItCanNotGetAnElapsedTimeWithoutBeingStarted()
+    public function test_it_can_not_get_an_elapsed_time_without_being_started()
     {
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be started first');
+        $this->expectExceptionCode(TimerException::CODE_NOT_STARTED);
 
         Timer::elapsed();
     }
 
-    public function testItCanNotGetTheStartTimeWithoutBeingStarted()
+    public function test_it_can_not_get_the_start_time_without_being_started()
     {
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be started first');
+        $this->expectExceptionCode(TimerException::CODE_NOT_STARTED);
 
         Timer::started();
     }
 
-    public function testItCanNotGetTheStoppedTimeWithoutBeingStarted()
+    public function test_it_can_not_get_the_stopped_time_without_being_started()
     {
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be started and stopped first');
+        $this->expectExceptionCode(TimerException::CODE_NOT_STARTED);
 
         Timer::stopped();
     }
 
-    public function testItCanNotGetTheStoppedTimeWithoutBeingStopped()
+    public function test_it_can_not_get_the_stopped_time_without_being_stopped()
     {
         Timer::start();
 
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be started and stopped first');
+        $this->expectExceptionCode(TimerException::CODE_NOT_STOPPED);
 
         Timer::stopped();
     }
 
-    public function testItCanNotAddALapWithoutBeingStarted()
+    public function test_it_can_not_add_a_lap_without_being_started()
     {
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be started first');
+        $this->expectExceptionCode(TimerException::CODE_NOT_STARTED);
 
         Timer::addLap();
     }
 
-    public function testItCannotAddALapAfterBeingStopped()
+    public function test_it_cannot_add_a_lap_after_being_stopped()
     {
         Timer::start();
         Timer::stop();
 
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Cannot add a lap after timer has been stopped');
+        $this->expectExceptionCode(TimerException::CODE_REQUIRES_RESET);
 
         Timer::addLap();
     }
 
-    public function testItCanNotGetTheLastLapWithoutBeingStarted()
+    public function test_it_can_not_get_the_last_lap_without_being_started()
     {
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be started first');
+        $this->expectExceptionCode(TimerException::CODE_NOT_STARTED);
 
         Timer::lastLap();
     }
 
-    public function testItCanNotGetAnArrayOfLapsWithoutBeingStarted()
+    public function test_it_can_not_get_an_array_of_laps_without_being_started()
     {
         $this->expectException(TimerException::class);
-        $this->expectExceptionMessage('Timer must be started first');
+        $this->expectExceptionCode(TimerException::CODE_NOT_STARTED);
 
         Timer::laps();
     }
 
-    public function testItCanGiveALapADescription()
+    public function test_it_can_give_a_lap_a_description()
     {
         $start = Timer::start();
         usleep(1000);
