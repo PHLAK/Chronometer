@@ -15,7 +15,7 @@ class Timer
     /** The last lap */
     private static ?Lap $lastLap;
 
-    /** @var list<Lap> $laps Array of laps */
+    /** @var list<Lap> Array of laps */
     private static array $laps = [];
 
     /**
