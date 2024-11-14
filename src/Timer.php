@@ -6,17 +6,17 @@ use PHLAK\Chronometer\Exceptions\TimerException;
 
 class Timer
 {
-    /** @var float Start time in microseconds */
-    protected static $started;
+    /** Start time in microseconds */
+    private static ?float $started;
 
-    /** @var float|null End time in micoseconds */
-    protected static $stopped;
+    /** End time in micoseconds */
+    private static ?float $stopped;
 
-    /** @var \PHLAK\Chronometer\Lap The last lap */
-    protected static $lastLap;
+    /** The last lap */
+    private static ?Lap $lastLap;
 
-    /** @var array Array of laps */
-    protected static $laps = [];
+    /** @var list<Lap> $laps Array of laps */
+    private static array $laps = [];
 
     /**
      * Start the timer.
@@ -38,7 +38,6 @@ class Timer
         }
 
         self::$started = microtime(true);
-        // self::$laps[] = self::addLap(self::$started, 0);
         self::$lastLap = new Lap(self::$started, 0);
         self::$laps[] = self::$lastLap;
 
@@ -59,8 +58,7 @@ class Timer
         }
 
         self::$stopped = microtime(true);
-        // self::$laps[] = self::addLap(self::$stopped);
-        self::$lastLap = new Lap(self::$stopped, self::$stopped - self::$lastLap->time);
+        self::$lastLap = new Lap(self::$stopped, self::$stopped - self::$lastLap?->time);
         self::$laps[] = self::$lastLap;
 
         return self::$stopped;
@@ -86,7 +84,7 @@ class Timer
         }
 
         $now = microtime(true);
-        $duration = $now - self::$lastLap->time;
+        $duration = $now - self::$lastLap?->time;
 
         self::$lastLap = new Lap($now, $duration, $description);
         self::$laps[] = self::$lastLap;
@@ -167,7 +165,7 @@ class Timer
      *
      * @throws \PHLAK\Chronometer\Exceptions\TimerException
      *
-     * @return array Array of Lap objects
+     * @return list<Lap> Array of Lap objects
      */
     public static function laps(): array
     {

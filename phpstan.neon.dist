@@ -1,0 +1,26 @@
+parameters:
+
+  paths:
+    - src
+    - tests
+
+  level: max
+
+  checkFunctionNameCase: true
+
+  reportUnmatchedIgnoredErrors: false
+
+  exceptions:
+    implicitThrows: false
+
+    check:
+      missingCheckedExceptionInThrows: true
+      tooWideThrowType: true
+
+    uncheckedExceptionClasses:
+      - 'PHPUnit\Framework\Exception'
+      - 'RuntimeException'
+
+  ignoreErrors:
+    - message: "#^Method .+ throws checked exception .+ but it's missing from the PHPDoc @throws tag.$#"
+      path: tests/*

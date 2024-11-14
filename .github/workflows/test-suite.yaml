@@ -9,6 +9,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+    
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: xdebug
 
       - name: Install PHP Dependencies
         run: composer update
@@ -24,11 +30,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: xdebug
+
       - name: Install PHP Dependencies
         run: composer update
 
       - name: Run Static Analysis
-        run: vendor/bin/psalm
+        run: vendor/bin/phpstan analyze --no-progress
 
   tests:
     name: Tests
@@ -36,7 +48,7 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ['7.2', '7.3', '7.4', '8.0']
+        php-versions: ['8.1', '8.2', '8.3']
 
     steps:
       - name: Checkout Repository
