@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-  bootstrap="vendor/autoload.php" colors="true"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="vendor/autoload.php" colors="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
 >
-  <coverage processUncoveredFiles="true">
-    <include>
-      <directory suffix=".php">src/</directory>
-    </include>
-  </coverage>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src/</directory>
+        </include>
+    </coverage>
 
-  <testsuites>
-    <testsuite name="PHLAK/Twine Test Suite">
-      <directory suffix="Test.php">tests/</directory>
-    </testsuite>
-  </testsuites>
+    <testsuites>
+        <testsuite name="PHLAK/Chronometer Test Suite">
+            <directory suffix="Test.php">tests/</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
