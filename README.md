@@ -65,7 +65,7 @@ Timer::reset();
 You may optionally reset the timer when you start it with the `$reset` parameter.
 
 ```php
-Timer::start($reset = true);
+Timer::start(reset: true);
 ```
 
 Usage
