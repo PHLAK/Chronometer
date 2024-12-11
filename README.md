@@ -3,19 +3,19 @@
 </p>
 
 <p align="center">
-    <a href="https://spectrum.chat/phlaknet"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg?style=for-the-badge" alt="Join our Community"></a>
+    <a href="https://github.com/PHLAK/Chronometer/discussions"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg?style=for-the-badge" alt="Join our Community"></a>
     <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg?style=for-the-badge" alt="Become a Sponsor"></a>
     <a href="https://paypal.me/ChrisKankiewicz"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg?style=for-the-badge" alt="One-time Donation"></a>
     <br>
     <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/v/PHLAK/Chronometer.svg?style=flat-square" title="Latest Stable Version"></a>
     <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/dt/PHLAK/Chronometer.svg?style=flat-square" title="Total Downloads"></a>
     <a href="https://packagist.org/packages/PHLAK/Chronometer"><img src="https://img.shields.io/packagist/l/PHLAK/Chronometer.svg?style=flat-square" title="License"></a>
-    <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/PHLAK/Chronometer/master?style=flat-square">
+    <a href="https://github.com/PHLAK/Chronometer/actions"><img src="https://img.shields.io/github/actions/workflow/status/PHLAK/Chronometer/test-suite.yaml?style=flat-square&label=tests" alt="Tests Status"></a>
 </p>
 
 <p align="center">
     Measure the passing of time --
-    by, <a href="https://www.ChrisKankiewicz.com">Chris Kankiewicz</a> (<a href="https://twitter.com/PHLAK">@PHLAK</a>),
+    by, <a href="https://www.ChrisKankiewicz.com">Chris Kankiewicz</a> (<a href="https://bsky.app/profile/phlak.dev">@phlak.dev</a>),
     logo by <a href="https://www.twitter.com/Caneco">Caneco</a>
 </p>
 
@@ -28,7 +28,7 @@ It's intended to be used for benchmarking code execution time.
 Requirements
 ------------
 
-  - [PHP](https://php.net) >= 7.1
+  - [PHP](https://php.net) >= 8.2
 
 Install with Composer
 ---------------------
@@ -221,7 +221,7 @@ A list of changes can be found on the [GitHub Releases](https://github.com/PHLAK
 Troubleshooting
 ---------------
 
-For general help and support join our [Spectrum community](https://spectrum.chat/phlaknet).
+For general help and support join our [GitHub Discussion](https://github.com/PHLAK/Chronometer/discussions) or reach out on [Bluesky](https://bsky.app/profile/phlak.dev).
 
 Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/Chronometer/issues).
 
